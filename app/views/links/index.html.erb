@@ -1,0 +1,10 @@
+<h1>Add New Link</h1>
+<div id='add_link'>
+  <%= form_for(:link, url: links_path) do |f| %>
+    <%= f.label :URL %>
+    <%= f.text_field :url %>
+    <%= f.label :Title %>
+    <%= f.password_field :title %>
+    <%= f.submit %>
+  <% end %>
+</div>

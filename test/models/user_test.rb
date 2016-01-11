@@ -12,6 +12,7 @@ class UserTest < ActiveSupport::TestCase
     user2 = User.new(name:"Test")
 
     refute user1.valid?
+    refute user2.valid?
   end
 
 end

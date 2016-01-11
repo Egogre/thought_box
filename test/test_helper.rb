@@ -8,15 +8,15 @@ require 'database_cleaner'
 Capybara.javascript_driver = :poltergeist
 
 class Capybara::Rails::TestCase
-  def setup
-    super
-    Capybara.current_driver = Capybara.javascript_driver
-  end
-
-  def teardown
-    super
-    Capybara.current_driver = Capybara.default_driver
-  end
+  # def setup
+  #   super
+  #   Capybara.current_driver = Capybara.javascript_driver
+  # end
+  #
+  # def teardown
+  #   super
+  #   Capybara.current_driver = Capybara.default_driver
+  # end
 
 end
 

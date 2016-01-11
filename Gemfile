@@ -14,6 +14,7 @@ gem 'responders'
 gem 'bcrypt'
 
 group :test do
+  gem 'pry'
   gem 'byebug'
   gem 'minitest-rails-capybara'
   gem 'database_cleaner'
