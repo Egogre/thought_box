@@ -1,6 +1,7 @@
 require 'uri'
 
 class Link < ActiveRecord::Base
+  belongs_to :user
   validates :url, :title, presence: true
   validate :url_is_valid
 
