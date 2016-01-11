@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ThoughtBox</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if current_user %>
+      <p class="navbar-text">
+       <strong>
+         Welcome <%= current_user.name %>
+       </strong>
+       <%= link_to "Logout", logout_path, method: :delete %>
+      </p>
+    <% else %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

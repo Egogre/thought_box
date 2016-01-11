@@ -1,0 +1,20 @@
+<h1>Log In</h1>
+<div id='login'>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+    <%= f.label :Password %>
+    <%= f.password_field :password %>
+    <%= f.submit %>
+  <% end %>
+</div>
+<h1>Or Create New Account</h1>
+<div id='signup'>
+  <%= form_for(:user, url: users_path) do |f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+    <%= f.label :Password %>
+    <%= f.password_field :password %>
+    <%= f.submit %>
+  <% end %>
+</div>
