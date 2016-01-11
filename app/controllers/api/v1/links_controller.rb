@@ -2,10 +2,12 @@ class Api::V1::LinksController < ApplicationController
   respond_to :json
 
   def index
+    require'pry';binding.pry
     respond_with Link.where(user_id: current_user.id)
   end
 
   def create
+    params["link"]["user_id"] = current_user.id
     respond_with :api, :v1, Link.create(link_params)
   end
 

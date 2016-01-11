@@ -1,8 +1,8 @@
 $(document).ready(function(){
   var $links = $('#links');
-  loadIdeas($links);
-  $('#idea-save').on('click', function(){
-    createIdea($links, this);
+  loadLinks($links);
+  $('#link-save').on('click', function(){
+    createLink($links, this);
   });
 
   $('#search').keyup(function() {
@@ -16,23 +16,23 @@ $(document).ready(function(){
   });
 
   $links.on('click', '.delete-button', function(){
-    deleteIdea(this);
+    deleteLink(this);
   });
 
-  $links.on('click', '.edit-idea', function(){
+  $links.on('click', '.edit-link', function(){
     editWindow(this);
   });
 
   $links.on('click', '.edit-update', function(){
-    editIdea(this);
+    editLink(this);
   });
 
-  $links.on('click', '.downgrade', function(){
-    downgradeIdea(this);
+  $links.on('click', '.read', function(){
+    markAsReadLink(this);
   });
 
   $links.on('click', '.upgrade', function(){
-    upgradeIdea(this);
+    upgradeLink(this);
   });
 
   $links.on('click', '.expand-toggle', function(){

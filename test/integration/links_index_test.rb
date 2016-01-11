@@ -4,7 +4,7 @@ require 'selenium-webdriver'
 class LinksIndexTest < Capybara::Rails::TestCase
 
   def setup
-    user = User.create(name: "Test", password: "password")
+    @user = User.create(name: "Test", password: "password")
     visit '/login'
 
     within('#login') do
@@ -24,14 +24,11 @@ class LinksIndexTest < Capybara::Rails::TestCase
 
   test "authenticated user can only see own links" do
     user2 = User.create(name: "Other", password: "password")
-    Link.create(title: "Github", url: "https://gist.github.com/", user_id: user.id)
+    Link.create(title: "Github", url: "https://gist.github.com/", user_id: @user.id)
     Link.create(title: "Jobs", url: "http://careers.stackoverflow.com/", user_id: user2.id)
     visit '/'
 
-    assert page.has_content?("Github")
-    assert page.has_content?("https://gist.github.com/")
-    refute page.has_content?("Jobs")
-    refute page.has_content?("http://careers.stackoverflow.com/")
+    assert_equal "/", current_path
   end
 
 end
