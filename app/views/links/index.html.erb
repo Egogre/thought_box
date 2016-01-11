@@ -8,3 +8,37 @@
     <%= f.submit %>
   <% end %>
 </div>
+<div id="link_list">
+  render @links
+</div>
+
+<div class="container">
+  <div class="header jumbotron text-center">
+    <h1>
+      Thought Box
+    </h1>
+  </div>
+  <div id="add-link" class="text-center">
+    <h2>Insert Your New Link:</h2>
+    <div class="col-lg-4 col-lg-offset-4">
+      <h3>Title:</h3>
+      <input type="text" class="form-control text-center" style="font-size:30px" id="new-link-title">
+    </div>
+    <div class="col-lg-4 col-lg-offset-4">
+      <h3>URL:</h3>
+      <input type="text" class="form-control text-center" style="font-size:20px" id="new-link-url">
+      <button type="submit" class="btn btn-primary" id="link-save">save</button>
+    </div>
+    <br>
+    <br>
+    <div class="col-lg-4 col-lg-offset-4">
+      <h2>Link List:</h2>
+      <hr>
+      <h3>Search Filter:</h3>
+      <input type="text" class="form-control text-center" style="font-size:30px" id="search">
+    </div>
+  </div>
+  <div id="links">
+
+  </div>
+</div>
