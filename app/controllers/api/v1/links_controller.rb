@@ -2,7 +2,6 @@ class Api::V1::LinksController < ApplicationController
   respond_to :json
 
   def index
-    require'pry';binding.pry
     respond_with Link.where(user_id: current_user.id)
   end
 
@@ -12,7 +11,6 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-    params[:link][:quality] = params[:link][:quality].to_i if params[:link][:quality]
     respond_with :api, :v1, Link.update(params[:id], link_params)
   end
 

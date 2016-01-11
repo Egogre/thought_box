@@ -16,29 +16,13 @@ function buildLinkElement(link) {
          + link.id
          + '"><div id ="card1" class="card text-center"><h1 class="link-title">'
          + link.title
-         + '</h1><h3 class="link-body link-truncated"><a href="'
+         + '</h1><h4>read: <div class="read-status">'
+         + link.read
+         + '</div></h4><button class="read btn">toggle read</button>'
+         + '<h3 class="link-body link-truncated"><a href="'
          + link.url
          + '">'
          + link.url
          + '</h3><button class="edit-link btn btn-info">edit</button>'
          + '<button class="delete-button btn btn-danger">delete</button></div></div>')
-}
-
-function whichButtons(bodyLength) {
-  if(bodyLength > 100) {
-    return '<button class="expand-toggle btn">show more</button>'
-    + '<button class="expand-toggle btn hidden">show less</button>'
-    + '<button class="edit-link btn btn-info">edit</button>'
-    + '<button class="delete-button btn btn-danger">delete</button>'
-  } else {
-    return '<button class="edit-link btn btn-info">edit</button>'
-    + '<button class="delete-button btn btn-danger">delete</button>'
-  }
-}
-
-function toggleFullBody(toggleButton) {
-  var $body = $(toggleButton).parent().find('.link-body');
-  $body.toggleClass('link-truncated');
-  var $toggleButtons = $(toggleButton).parent().find('.expand-toggle');
-  $toggleButtons.toggleClass('hidden');
 }
