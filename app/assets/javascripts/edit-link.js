@@ -12,6 +12,7 @@ function editWindow(editElement) {
 
 function buildEditArea(readStatus) {
   return '<div id ="card2" class="card text-center"><br>' +
+         '<h4 id="card-errors"></h4>' +
          '<input type="text" class="form-control text-center" style="font-size:35px" id="edit-link-title">' +
          '<br><h4>read: <div class="read-status">' +
          readStatus +
@@ -35,6 +36,9 @@ function updateLink(linkID, title, linkUrl, $parent) {
     url:  '/api/v1/links/' + linkID,
     data: { link: { title: title, url: linkUrl } },
     dataType: 'json',
+    error: function() {
+      $parent.find('#card-errors').text("Invalid request. Make sure you have a Title and VALID url.");
+    },
     success: function(response){
       $parent.find('#card1').show();
       $parent.find('.link-title').text(title);

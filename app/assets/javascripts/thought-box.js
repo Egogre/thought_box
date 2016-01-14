@@ -15,6 +15,39 @@ $(document).ready(function(){
     }).hide();
   });
 
+  $('.filter-read').click(function() {
+    var $cards = $links.children();
+    $cards.sort(function(a, b) {
+      var aCardRead = $(a).find(".read-status").text(),
+          bCardRead = $(b).find(".read-status").text();
+      if(aCardRead > bCardRead) {
+    		return 1;
+    	}
+    	if(aCardRead < bCardRead) {
+    		return -1;
+    	}
+    	return 0;
+    });
+    $cards.detach().appendTo($links);
+  });
+
+  $('.alphabetize').click(function() {
+    var $cards = $links.children();
+    console.log('WORKING');
+    $cards.sort(function(a, b) {
+      var aCardRead = $(a).find(".link-title").text(),
+          bCardRead = $(b).find(".link-title").text();
+      if(aCardRead < bCardRead) {
+    		return 1;
+    	}
+    	if(aCardRead > bCardRead) {
+    		return -1;
+    	}
+    	return 0;
+    });
+    $cards.detach().appendTo($links);
+  });
+
   $links.on('click', '.delete-button', function(){
     deleteLink(this);
   });

@@ -16,8 +16,7 @@ function postNewLink($links, title, linkUrl) {
     data: { link: { title: title, url: linkUrl } },
     dataType: 'json',
     error: function(){
-      $('#link-errors').text("");
-      $('#link-errors').prepend("Invalid request. Make sure you have a Title and VALID url.");
+      $('#link-errors').text("Invalid request. Make sure you have a Title and VALID url.");
     },
     success: function(response){
       $('#link-errors').text("");
